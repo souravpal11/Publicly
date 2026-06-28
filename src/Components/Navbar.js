@@ -60,7 +60,7 @@ const Navbar = (props) => {
         <div className="d-flex w-100 justify-content-between align-items-center">
 
           <a className="navbar-brand" href="/">
-            NewsApp
+            Publically
           </a>
 
           <div>
