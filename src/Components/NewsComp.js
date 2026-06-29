@@ -82,7 +82,7 @@ export class NewsComp extends Component {
       <div className="container-fluid px-3 px-md-5 my-3">
         <div className="d-flex justify-content-center align-items-center my-4">
           <i className="fa-regular fa-newspaper fs-2 me-3 text-secondary"></i>
-          <h2 className="fw-bold mb-0">Top News Headlines</h2>
+          <h2 className="fw-bold mb-0">{this.props.category} News Headlines</h2>
         </div>
         <div className="row g-4 justify-content-center">
          {this.state.loading && 
