@@ -50,18 +50,20 @@
 // export default Navbar
 
 import React from "react";
+import Logo from "../Logo.png"
 
 const Navbar = (props) => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-black sticky-top">
       <div className="container">
 
         {/* Logo + Icons */}
         <div className="d-flex w-100 justify-content-between align-items-center">
 
-          <a className="navbar-brand" href="/">
-            Publically
+          <a className="navbar-brand mx-3" href="/">
+            <img src={Logo} alt="Publicly" style={{height:'40px',width:'120px'}} className="logo" />
           </a>
+
 
           <div>
 
