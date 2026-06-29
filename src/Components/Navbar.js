@@ -65,10 +65,10 @@ const Navbar = (props) => {
           </a>
 
 
-          <div>
+          <div style={{display: "flex"}}>
 
             <button
-              className="navbar-toggler me-2"
+              className="navbar-toggler me-2 px-3"
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#searchBar"
