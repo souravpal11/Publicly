@@ -15,7 +15,7 @@ export class NewsComp extends Component {
 
   async componentDidMount() {
     try {
-      let url =`https://newsdata.io/api/1/latest?apikey=pub_69aea1473ceb4db98bfaf41b7c43f7d3&country=in&category=${this.props.category}&language=en&image=1&removeduplicate=1`;
+      let url =`https://newsdata.io/api/1/latest?apikey=pub_69aea1473ceb4db98bfaf41b7c43f7d3&country=in&category=${this.props.category}&language=en&image=1&removeduplicate=1&size=9`;
         
       if (this.props.search && this.props.search.trim() !== "") {
         url += `&q=${encodeURIComponent(this.props.search)}`;
@@ -41,7 +41,7 @@ export class NewsComp extends Component {
 
         this.setState({loading:true});
 
-        let url =`https://newsdata.io/api/1/latest?apikey=pub_69aea1473ceb4db98bfaf41b7c43f7d3&country=in&category=${this.props.category}&language=en&image=1&removeduplicate=1`;
+        let url =`https://newsdata.io/api/1/latest?apikey=pub_69aea1473ceb4db98bfaf41b7c43f7d3&country=in&category=${this.props.category}&language=en&image=1&removeduplicate=1&size=9`;
         
         if (this.props.search && this.props.search.trim() !== "") {
           url += `&q=${encodeURIComponent(this.props.search)}`;
@@ -65,7 +65,7 @@ export class NewsComp extends Component {
 
     this.setState({ loading: true });
 
-    let url = `https://newsdata.io/api/1/latest?apikey=pub_69aea1473ceb4db98bfaf41b7c43f7d3&page=${this.state.nextPage}`;
+    let url = `https://newsdata.io/api/1/latest?apikey=pub_69aea1473ceb4db98bfaf41b7c43f7d3&page=${this.state.nextPage}&size=9`;
 
     let data = await fetch(url);
     let parsedData = await data.json();
@@ -82,7 +82,7 @@ export class NewsComp extends Component {
       <div className="container-fluid px-3 px-md-5 my-3">
         <div className="d-flex justify-content-center align-items-center my-4">
           <i className="fa-regular fa-newspaper fs-2 me-3 text-secondary"></i>
-          <h2 className="fw-bold mb-0">Top News Headlines</h2>
+          <h2 className="fw-bold mb-0">{this.props.category.charAt(0).toUpperCase() + this.props.category.slice(1)} Headlines</h2>
         </div>
         <div className="row g-4 justify-content-center">
          {this.state.loading && 
@@ -107,6 +107,7 @@ export class NewsComp extends Component {
             date={element.pubDate}
             author={element.creator}
           />
+          
         </div>
       
 ))}
