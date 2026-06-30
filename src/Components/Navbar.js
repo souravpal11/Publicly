@@ -12,7 +12,17 @@ const Navbar = (props) => {
           <a className="navbar-brand mx-3" href="/">
             <img src={Logo} alt="Publicly" style={{height:'40px',width:'120px'}} className="logo" />
           </a>
-
+          
+          <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Language
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" onClick={() => props.changeLanguage("en")} href="#">English</a></li>
+    <li><a class="dropdown-item" onClick={() => props.changeLanguage("hi")} href="#">Hindi</a></li>
+    <li><a class="dropdown-item" onClick={() => props.changeLanguage("mr")} href="#">Marathi</a></li>
+  </ul>
+</div>
 
           <div style={{display: "flex"}}>
 
