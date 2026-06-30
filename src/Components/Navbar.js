@@ -13,7 +13,7 @@ const Navbar = (props) => {
             <img src={Logo} alt="Publicly" style={{height:'40px',width:'120px'}} className="logo" />
           </a>
           
-          <div class="dropdown">
+   <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
     Language
   </button>
