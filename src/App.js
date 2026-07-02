@@ -11,7 +11,7 @@ export class App extends Component {
     country: "in",
     language: "en",
   };
-
+  
   setSearch = (text) => {
     this.setState({
       search: text,
@@ -43,24 +43,9 @@ export class App extends Component {
   render() {
     return (
       <>
-        <Navbar
-          category={this.state.category}
-          changeCategory={this.changeCategory}
-          language={this.state.language}
-          changeLanguage={this.changeLanguage}
-          country={this.state.country}
-          changeCountry={this.changeCountry}
-          search={this.state.search}
-          setSearch={this.setSearch}
-          searchNews={this.searchNews}
-        />
-        <NewsComp
-          category={this.state.category}
-          search={this.state.searchQuery}
-          language={this.state.language}
-          country={this.state.country}
-        />
-        <Footer />
+        <Navbar changeCategory={this.changeCategory} search={this.state.search} setSearch={this.setSearch} searchNews={this.searchNews}/>
+        <NewsComp category={this.state.category} search={this.state.search} language={this.state.language}/>
+        <Footer/>
       </>
     );
   }
