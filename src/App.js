@@ -1,51 +1,66 @@
-// import './App.css';
-// import Navbar from './Components/Navbar';
-// import NewsComp from './Components/NewsComp'; 
-
-// import React, { Component } from 'react'
-
-// export default class App extends Component {
-//   render() {
-//     return (
-//       <div>
-//          <Navbar/>
-//          <NewsComp/>
-//       </div>
-//     )
-//   }
-// }
-
 import React, { Component } from "react";
 import Navbar from "./Components/Navbar";
 import NewsComp from "./Components/NewsComp";
 import Footer from "./Components/Footer";
 
-
 export class App extends Component {
-
   state = {
     category: "top",
-    search: ""
-  }
-  
+    search: "",
+    searchQuery: "",
+    country: "in",
+    language: "en",
+  };
+
   setSearch = (text) => {
     this.setState({
-      search: text
+      search: text,
     });
-  }
+  };
+
+  searchNews = () => {
+    this.setState({
+      searchQuery: this.state.search,
+    });
+  };
 
   changeCategory = (cat) => {
     this.setState({
-      category: cat
+      category: cat,
     });
-  }
+  };
+
+  changeLanguage = (lang) => {
+    this.setState({
+      language: lang,
+    });
+  };
+
+  changeCountry = (country) => {
+    this.setState({ country });
+  };
 
   render() {
     return (
       <>
-        <Navbar changeCategory={this.changeCategory} search={this.state.search} setSearch={this.setSearch} searchNews={this.searchNews}/>
-        <NewsComp category={this.state.category} search={this.state.search}/>
-        <Footer/>
+        <Navbar
+          category={this.state.category}
+          changeCategory={this.changeCategory}
+          language={this.state.language}
+          changeLanguage={this.changeLanguage}
+          country={this.state.country}
+          changeCountry={this.changeCountry}
+          search={this.state.search}
+          setSearch={this.setSearch}
+          searchNews={this.searchNews}
+        />
+        <NewsComp
+          category={this.state.category}
+          search={this.state.searchQuery}
+          language={this.state.language}
+          country={this.state.country}
+        />
+        <Footer />
       </>
     );
   }
