@@ -159,6 +159,94 @@ const Navbar = (props) => {
         </>
       ),
     },
+    {
+      code: "breaking",
+      name: (
+        <>
+          <i className="fa-solid fa-bullhorn me-2"></i>Breaking
+        </>
+      ),
+    },
+    {
+      code: "crime",
+      name: (
+        <>
+          <i className="fa-solid fa-handcuffs me-2"></i>Crime
+        </>
+      ),
+    },
+    {
+      code: "domestic",
+      name: (
+        <>
+          <i className="fa-solid fa-landmark-flag me-2"></i>Domestic
+        </>
+      ),
+    },
+    {
+      code: "education",
+      name: (
+        <>
+          <i className="fa-solid fa-graduation-cap me-2"></i>Education
+        </>
+      ),
+    },
+    {
+      code: "world",
+      name: (
+        <>
+          <i className="fa-solid fa-earth-americas me-2"></i>World
+        </>
+      ),
+    },
+    {
+      code: "environment",
+      name: (
+        <>
+          <i className="fa-brands fa-pagelines me-2"></i>Environment
+        </>
+      ),
+    },
+    {
+      code: "entertainment",
+      name: (
+        <>
+          <i class="fa-solid fa-film me-2"></i>Entertainment
+        </>
+      ),
+    },
+    {
+      code: "food",
+      name: (
+        <>
+          <i class="fa-solid fa-utensils me-2"></i>Food
+        </>
+      ),
+    },
+    {
+      code: "lifestyle",
+      name: (
+        <>
+          <i className="fa-solid fa-spa me-2"></i>Lifestyle
+        </>
+      ),
+    },
+    {
+      code: "tourism",
+      name: (
+        <>
+          <i class="fa-solid fa-plane-departure me-2"></i>Tourism
+        </>
+      ),
+    },
+    {
+      code: "other",
+      name: (
+        <>
+          <i className="fa-regular fa-newspaper me-2"></i>Other
+        </>
+      ),
+    },
   ];
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-black sticky-top">
@@ -185,11 +273,14 @@ const Navbar = (props) => {
           >
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
-          <div className="d-flex justify-content-evenly gap-1 " style={{ width: "25rem" }}>
+          <div
+            className="d-flex justify-content-evenly gap-1 "
+            style={{ width: "25rem" }}
+          >
             <div className="dropdown">
               <button
-               className="btn btn-dark btn-sm dropdown-toggle text-truncate"
-style={{ maxWidth: "120px" }}
+                className="btn btn-dark btn-sm dropdown-toggle text-truncate"
+                style={{ maxWidth: "120px" }}
                 data-bs-toggle="dropdown"
               >
                 {countries.find((c) => c.code === props.country)?.name ||
@@ -216,7 +307,7 @@ style={{ maxWidth: "120px" }}
             <div className="dropdown">
               <button
                 className="btn btn-dark btn-sm dropdown-toggle text-truncate"
-style={{ maxWidth: "120px" }}
+                style={{ maxWidth: "120px" }}
                 type="button"
                 data-bs-toggle="dropdown"
               >
@@ -243,7 +334,7 @@ style={{ maxWidth: "120px" }}
             <div className="dropdown">
               <button
                 className="btn btn-dark btn-sm dropdown-toggle text-truncate"
-style={{ maxWidth: "120px" }}
+                style={{ maxWidth: "120px" }}
                 type="button"
                 data-bs-toggle="dropdown"
               >
@@ -251,7 +342,7 @@ style={{ maxWidth: "120px" }}
                   "Category"}
               </button>
 
-              <ul className="dropdown-menu bg-dark text-white">
+              <ul className="dropdown-menu bg-dark text-white" style={{ position: "absolute", top: "100%", right: 0, left: "auto", maxHeight: "300px", overflowY: "auto" }}>
                 {categories.map((c) => (
                   <li key={c.code}>
                     <button
@@ -275,7 +366,7 @@ style={{ maxWidth: "120px" }}
             className="d-flex w-100 bg-dark rounded-pill "
             onSubmit={(e) => {
               e.preventDefault();
-              props.searchNews()
+              props.searchNews();
             }}
           >
             <div className="input-group shadow-sm rounded-pill overflow-hidden">
