@@ -384,7 +384,7 @@ const Navbar = (props) => {
         </div>
         {location.pathname !== "/about" && (
         <div
-          className="collapse navbar-collapse ms-2 w-300"
+          className="collapse navbar-collapse ms-2 my-1 w-300"
           id="searchBar"
         >
           <form
