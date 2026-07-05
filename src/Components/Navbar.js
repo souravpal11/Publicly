@@ -1,6 +1,9 @@
 import Logo from "../Logo.png";
+import { Link,useLocation } from "react-router-dom";
 
 const Navbar = (props) => {
+  const location = useLocation();
+
   const countries = [
     { code: "in", name: "🇮🇳 India" },
     { code: "us", name: "🇺🇸 United States" },
@@ -107,7 +110,7 @@ const Navbar = (props) => {
       code: "top",
       name: (
         <>
-          <i className="fa-solid fa-house me-2"></i>Home
+          <i className="fa-regular fa-newspaper me-2"></i>Top News
         </>
       ),
     },
@@ -253,15 +256,24 @@ const Navbar = (props) => {
       <div className="container">
         {/* Logo + Icons */}
         <div className="d-flex flex-wrap w-100 justify-content-between align-items-center gap-2">
-          <a className="navbar-brand me-1" href="/">
-            <img
-              src={Logo}
-              alt="Publicly"
-              style={{ height: "40px", width: "120px" }}
-              className="logo"
-            />
-          </a>
+          <div className="links d-flex align-items-center gap-3 flex-wrap">
+            <a className="navbar-brand me-0" href="/">
+              <img
+                src={Logo}
+                alt="Publicly"
+                style={{ height: "40px", width: "120px" }}
+                className="logo"
+              />
+            </a>
 
+            <Link className="nav-link text-light" to="/">
+              Home
+            </Link>
+            <Link className="nav-link text-light" to="/about">
+              About
+            </Link>
+          </div>
+          {location.pathname !== "/about" && (
           <button
             className="navbar-toggler btn bg-dark text-white px-3 py-2 my-1 me-1 rounded-pill "
             // style={{
@@ -273,6 +285,8 @@ const Navbar = (props) => {
           >
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
+          )}
+          {location.pathname !== "/about" && (
           <div
             className="d-flex justify-content-evenly gap-1 "
             style={{ width: "25rem" }}
@@ -342,7 +356,17 @@ const Navbar = (props) => {
                   "Category"}
               </button>
 
-              <ul className="dropdown-menu bg-dark text-white" style={{ position: "absolute", top: "100%", right: 0, left: "auto", maxHeight: "300px", overflowY: "auto" }}>
+              <ul
+                className="dropdown-menu bg-dark text-white"
+                style={{
+                  position: "absolute",
+                  top: "100%",
+                  right: 0,
+                  left: "auto",
+                  maxHeight: "300px",
+                  overflowY: "auto",
+                }}
+              >
                 {categories.map((c) => (
                   <li key={c.code}>
                     <button
@@ -356,10 +380,11 @@ const Navbar = (props) => {
               </ul>
             </div>
           </div>
+          )}
         </div>
-
+        {location.pathname !== "/about" && (
         <div
-          className="collapse navbar-collapse ms-2 my-2 w-300"
+          className="collapse navbar-collapse ms-2 w-300"
           id="searchBar"
         >
           <form
@@ -390,6 +415,7 @@ const Navbar = (props) => {
             </div>
           </form>
         </div>
+        )}
       </div>
     </nav>
   );

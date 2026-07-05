@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Navbar from "./Components/Navbar";
 import NewsComp from "./Components/NewsComp";
 import Footer from "./Components/Footer";
+import About from "./Components/About";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export class App extends Component {
   state = {
@@ -43,24 +45,35 @@ export class App extends Component {
   render() {
     return (
       <>
-        <Navbar
-          category={this.state.category}
-          changeCategory={this.changeCategory}
-          language={this.state.language}
-          changeLanguage={this.changeLanguage}
-          country={this.state.country}
-          changeCountry={this.changeCountry}
-          search={this.state.search}
-          setSearch={this.setSearch}
-          searchNews={this.searchNews}
-        />
-        <NewsComp
-          category={this.state.category}
-          search={this.state.search}
-          language={this.state.language}
-          country={this.state.country}
-        />
-        <Footer />
+        <BrowserRouter>
+          <Navbar
+            category={this.state.category}
+            changeCategory={this.changeCategory}
+            language={this.state.language}
+            changeLanguage={this.changeLanguage}
+            country={this.state.country}
+            changeCountry={this.changeCountry}
+            search={this.state.search}
+            setSearch={this.setSearch}
+            searchNews={this.searchNews}
+          />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <NewsComp
+                  category={this.state.category}
+                  search={this.state.search}
+                  language={this.state.language}
+                  country={this.state.country}
+                />
+              }
+            />
+
+            <Route path="/about" element={<About />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
       </>
     );
   }
