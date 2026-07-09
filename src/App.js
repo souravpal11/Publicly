@@ -6,6 +6,7 @@ import About from "./Components/About";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export class App extends Component {
+  apiKey = process.env.REACT_APP_PUBLICLY_API_KEY
   state = {
     category: "top",
     search: "",
@@ -66,6 +67,7 @@ export class App extends Component {
                   search={this.state.search}
                   language={this.state.language}
                   country={this.state.country}
+                  apiKey={this.apiKey}
                 />
               }
             />

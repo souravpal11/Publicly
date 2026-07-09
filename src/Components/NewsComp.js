@@ -19,7 +19,7 @@ export class NewsComp extends Component {
     try {
       this.setState({ loading: true });
 
-      let url = `https://newsdata.io/api/1/latest?apikey=pub_69aea1473ceb4db98bfaf41b7c43f7d3&country=${this.props.country}&category=${this.props.category}&language=${this.props.language}&image=1&removeduplicate=1&size=9`;
+      let url = `https://newsdata.io/api/1/latest?apikey=${this.props.apiKey}&country=${this.props.country}&category=${this.props.category}&language=${this.props.language}&image=1&removeduplicate=1&size=9`;
 
       if (this.props.search && this.props.search.trim() !== "") {
         url += `&q=${encodeURIComponent(this.props.search)}`;
@@ -62,7 +62,7 @@ export class NewsComp extends Component {
     if (!this.state.nextPage) return;
 
     try {
-      let url = `https://newsdata.io/api/1/latest?apikey=pub_69aea1473ceb4db98bfaf41b7c43f7d3&country=${this.props.country}&category=${this.props.category}&language=${this.props.language}&image=1&removeduplicate=1&size=9&page=${this.state.nextPage}`;
+      let url = `https://newsdata.io/api/1/latest?apikey=${this.props.apiKey}&country=${this.props.country}&category=${this.props.category}&language=${this.props.language}&image=1&removeduplicate=1&size=9&page=${this.state.nextPage}`;
 
       if (this.props.search && this.props.search.trim() !== "") {
         url += `&q=${encodeURIComponent(this.props.search)}`;
