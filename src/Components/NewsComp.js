@@ -113,7 +113,7 @@ export class NewsComp extends Component {
             }
             endMessage={
               <h5 className="text-center my-4 text-secondary">
-                🎉 You've reached the end.
+                You've reached the end.
               </h5>
             }
           >
