@@ -24,11 +24,11 @@ export class NewsCard extends Component {
           />
           <div className="card-body">
             <h5 className="card-title">
-              {title ? title.slice(0, 70) + "..." : ""}
+              {title }
             </h5>
 
             <p className="card-text">
-              {description ? description.slice(0, 120) + "..." : ""}
+              {description ? description.slice(0, 170) + "..." : ""}
             </p>
 
             <small className="text-muted">
